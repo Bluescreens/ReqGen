@@ -1,5 +1,6 @@
 import os
 from pprint import pprint
+from parser import PythonParser
 
 
 class DirectoryTraversal:
@@ -63,7 +64,7 @@ class DirectoryTraversal:
         return False
 
     def filter(self, directory, file):
-        if ".py" in file or ".pyw" in file:
+        if file.endswith(".py"):
             self.indexes[directory].append(file)
 
     def index_parent(self, directory):
@@ -101,3 +102,5 @@ class DirectoryTraversal:
 if __name__ == '__main__':
     project = DirectoryTraversal('/home/rottencrab/PycharmProjects/ReqGen')
     project.traversal()
+    parser = PythonParser(project.indexes)
+    parser.mass_parsing()
