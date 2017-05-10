@@ -62,6 +62,10 @@ class DirectoryTraversal:
             return True
         return False
 
+    def filter(self, directory, file):
+        if ".py" in file or ".pyw" in file:
+            self.indexes[directory].append(file)
+
     def index_parent(self, directory):
         """
         This function lists all the contents of a given directory (eg. files, subdirectories).
@@ -80,7 +84,8 @@ class DirectoryTraversal:
                 # subdirectories.append(content)
                 # self.children[self.PATH].append(content)
             else:
-                self.indexes[directory].append(content)
+                # self.indexes[directory].append(content)
+                self.filter(directory, content)
         # pprint(subdirectories)
         # pprint(files)
         # return subdirectories, files
