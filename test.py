@@ -4,7 +4,7 @@ for root, dirs, files in os.walk('../../Desktop'):
     print(root)
     print(dirs)
     print(files)
-'''
+
 tokenized = "../../Desktop/"
 for filename in os.listdir(tokenized):
     print("=" * 50)
@@ -13,3 +13,4 @@ for filename in os.listdir(tokenized):
         print("This is a Directory")
     else:
         print("This is a file")
+'''

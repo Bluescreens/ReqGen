@@ -7,12 +7,25 @@ PREFIX = "../../"
 
 
 def validate_input_dir(directory):
+    """
+    This function checks if the given Directory exists.
+    :param directory: a directory (path form)
+    :return: True if the directory exists, False otherwise.
+    """
     if os.path.exists(directory):
         return True
     return False
 
 
 def tokenize(directory):
+    """
+    This function gets a path to a directory and it breaks it
+    into prefix and neat directory name. For example, assume we
+    have this path /home/user/Desktop this function with break it
+    into a prefix = /home/user/ and a directory name Desktop.
+    :param directory: The given Directory
+    :return: the prefix and the name
+    """
     dir_name = ""
     prefix = ""
     token = False
@@ -27,6 +40,13 @@ def tokenize(directory):
 
 
 def index_parent(directory):
+    """
+    This function lists all the contents of a given directory (eg. files, subdirectories).
+    Furthermore, this function classifies the content of the specifies directory
+    into file list and subdirectory list.
+    :param directory: The directory we are indexing
+    :return: the classification of the contents in separate lists
+    """
     subdirectories = []
     files = []
     print(os.getcwd())
