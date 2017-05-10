@@ -1,4 +1,5 @@
 import os
+import argparse
 from pprint import pprint
 from parser import PythonParser
 
@@ -100,7 +101,11 @@ class DirectoryTraversal:
         pprint(self.indexes)
 
 if __name__ == '__main__':
-    project = DirectoryTraversal('/home/rottencrab/PycharmProjects/ReqGen')
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument("path") # the path must be absolute
+    args = arg_parser.parse_args()
+    path = args.path
+    project = DirectoryTraversal(path)
     project.traversal()
     parser = PythonParser(project.indexes)
     parser.mass_parsing()
